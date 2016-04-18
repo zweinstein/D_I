@@ -32,15 +32,7 @@ I scraped tweets from [Twitter API](https://dev.twitter.com/overview/api) using 
 
 Tweets about CAI Approaches during the Week of April 10, 2016 suggest some of the most popular CAI approaches are associated with acne treatment, breast cancer, and weight loss. The world clouds also illustrate overall positive sentiment regarding CAI approaches as indicated by words such as “extremely powerful”, “powerful herb”. 
 
-```{r, echo=FALSE, fig.width = 14, fig.height = 5.8, warning = F, message = F, fig.align = 'center'}
-require(RColorBrewer)
-load("grams.Rdata")
-par(mfrow=c(1,2))
-plot(gram1, max.words=200, random.order=F, # min.freq=60,
-     colors = brewer.pal(6, "Dark2"), scale = c(5, 0.5))
-plot(gram2stem, max.words=100, random.order=F, # min.freq=60,
-     colors = brewer.pal(6, "Dark2"), scale = c(4, 0.4))
-```
+<img src="assets/fig/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
 
 ---
 
@@ -48,16 +40,6 @@ plot(gram2stem, max.words=100, random.order=F, # min.freq=60,
 
 The algorithms calculate the sentiment score of each word based on [NRC Word-Emotion Association Lexicon](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm), and sum up all the sentiment scores for the entire collection of tweet data. The tweets are mostly positive regarding CAI approaches. Deeper text mining will be conducted to identify more specific contexts for the positive and negative sentiment, respectively. 
 
-```{r, echo=FALSE, warning = F, message = F, fig.width = 14, fig.height = 5.5, fig.align = 'center'}
-require(ggplot2)
-load("st.dataframe.Rdata")
-ggplot(st, aes(sentiment, count)) +
-        geom_bar(stat = "identity", aes(fill = sentiment)) +
-        theme(legend.position = "none", axis.text=element_text(size=16),
-              axis.title=element_text(size=18,face="bold"),
-              title=element_text(size=18,face="bold")) +
-        xlab("") + ylab("Total Count") + 
-        ggtitle("Total Sentiment Score for Tweets about CAI Approaches in the Week of April 10, 2016")
-```
+<img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
 

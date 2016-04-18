@@ -33,7 +33,7 @@
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
     <h1>Real World Insights into Complementary, Alternative, and Integrative Health Approaches</h1>
-    <h2>A Twitter Text Minding Approach</h2>
+    <h2>A Twitter Text Minding Study</h2>
     <p>Zhen Wang<br/>Albert Einstein College of Medicine</p>
   </hgroup>
   <article></article>  
@@ -62,7 +62,7 @@
     <p>Twitter is a microblogging system with over 100 million users generating 500 million tweets per day, and half of Twitter users are located in US. I am using Twitter text mining to discover what people are tweeting about CAI approaches and the sentiment associated with them. 
 In the end, an interactive online App can be developed based on this data project, with functions to explore and visualize the use of and attitudes toward CAI approaches in different regions and the changes over time. Potential users of the App include government policy makers, CAI practitioners, health insurers, investors interested in CAI approaches, and text-mining hobbyists.</p>
 
-<p>About Twitter Search API: <a href="https://dev.twitter.com/rest/public/search">https://dev.twitter.com/rest/public/search</a></p>
+<p>I scraped tweets from <a href="https://dev.twitter.com/overview/api">Twitter API</a> using the TwitteR package for R. Jeffrey Breen has published a twitter sentiment analysis tutorial in his <a href="https://github.com/jeffreybreen/twitter-sentiment-analysis-tutorial-201107">GitHub repository</a>. </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -86,7 +86,7 @@ In the end, an interactive online App can be developed based on this data projec
     <h2>Total Sentiment Score</h2>
   </hgroup>
   <article data-timings="">
-    <p>The algorithms calculate the sentiment score of each word based on NRC Word-Emotion Association Lexicon, and sum up all the sentiment scores for the entire collection of tweet data. The tweets are mostly positive regarding CAI approaches. Deeper text mining will be conducted to identify more specific contexts for the positive and negative sentiment, respectively. </p>
+    <p>The algorithms calculate the sentiment score of each word based on <a href="http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Word-Emotion Association Lexicon</a>, and sum up all the sentiment scores for the entire collection of tweet data. The tweets are mostly positive regarding CAI approaches. Deeper text mining will be conducted to identify more specific contexts for the positive and negative sentiment, respectively. </p>
 
 <p><img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" /></p>
 
