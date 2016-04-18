@@ -11,6 +11,8 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
+
+
 ## Motivation
 
 Both the World Health Organization (WHO) and the US National Institutes of Health (NIH) have made strategic plans to integrate orthodox medicine with complementary and alternative approaches for promoting public health and developing patient-centered and prevention-focused healthcare. Based on the most recent National Health Interview Survey in 2012, more than 3 in 10 American adults use complementary, alternative, and integrative (CAI) approaches to health and wellness. Prompt analysis of real-time real-world use of and attitudes toward CAI approaches in American population can help decision-making in healthcare reform and determining potential market value of CAI approaches. 
@@ -32,7 +34,7 @@ I scraped tweets from [Twitter API](https://dev.twitter.com/overview/api) using 
 
 Tweets about CAI Approaches during the Week of April 10, 2016 suggest some of the most popular CAI approaches are associated with acne treatment, breast cancer, and weight loss. The world clouds also illustrate overall positive sentiment regarding CAI approaches as indicated by words such as “extremely powerful”, “powerful herb”. 
 
-<img src="assets/fig/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
 ---
 
@@ -40,6 +42,6 @@ Tweets about CAI Approaches during the Week of April 10, 2016 suggest some of th
 
 The algorithms calculate the sentiment score of each word based on [NRC Word-Emotion Association Lexicon](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm), and sum up all the sentiment scores for the entire collection of tweet data. The tweets are mostly positive regarding CAI approaches. Deeper text mining will be conducted to identify more specific contexts for the positive and negative sentiment, respectively. 
 
-<img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
 
 
