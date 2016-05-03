@@ -32,10 +32,9 @@ knit        : slidify::knit2slides
 
 ## CAI Uses Reflected by Tweets on April 21, 2016
 
-* 70 search keywords were defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
+* Tweets were collected for April 10-29, 2016, using 60 search keywords defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
 * Nutrition, yoga, massage, and meditation are the 4 most frequently tweeted CAI approaches. 
-* When those keywords are disabled, ayurveda, hypnosis, and acupuncture appear to be the top approaches.
-* Other top approaches include reiki, homeopathy, herbal medicine, tai chi.
+* When those keywords are disabled, ayurveda, hypnosis, and acupuncture appear to be the top approaches. Other top approaches include reiki, homeopathy, herbal medicine, tai chi.
 
 <img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
@@ -43,21 +42,30 @@ knit        : slidify::knit2slides
 
 ## CAI Approaches Are Used Everywhere in the World
 
+English tweets about <span style="color:red"> Ayurveda </span>,
+<span style="color:green"> Hypnosis </span>, and 
+<span style="color:blue"> Acupuncture </span> in the World.
+
 <img src="assets/fig/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
 
 ---
 
-## CAI Approaches Are Used throughout USA
+## CAI Approaches Are Used Everywhere in USA
+
+English tweets about <span style="color:red"> Ayurveda </span>,
+<span style="color:green"> Hypnosis </span>, and 
+<span style="color:blue"> Acupuncture </span> in USA.
 
 <img src="assets/fig/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
 
 ---
 
-## What do people use Acupuncture for? How do they use it? What do they think about it?
+## Acupuncture: What for? How? Opinions?
 
-* People use acupuncture for weight loss, back pain, hot flash, breast cancer.
+English Tweets about Acupuncture during April 10-29, 2016:
+* People use acupuncture for weight loss, back pain, hot flash, breast cancer...
 * People use various types of acupuncture including needle, massage, cupping, moxibustion, and electro-acupuncture.
-* Positive opinions as indicated by "can help", "great", "like", "magic"...
+* Positive opinions indicated by "can help", "great", "like", "relax"...
 
 <img src="assets/fig/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
@@ -67,19 +75,18 @@ knit        : slidify::knit2slides
 
 * Sentiment score based on [NRC Word-Emotion Association Lexicon](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm). 
 * Mixed feelings, overall positive... 
-* Deeper text mining can identify more specific contexts for the positive and negative sentiment, respectively. 
 
 <img src="assets/fig/unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" /><img src="assets/fig/unnamed-chunk-6-2.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
 
 ---
 
 ## Conclusions and Future Work
-* People are tweeting about CAI approaches all over the world, and throughout USA.
-* Acupuncture is among the most commonly used CAI approach:
+* People are tweeting about CAI approaches all over the world and in USA.
+* Top CAI approaches are nutrition, yoga, massage, meditation, ayurveda, hypnosis, acupuncture, reiki, homeopathy, herbal medicine, and tai chi.
  - People use acupuncture for weight loss, pain relief, hot flash, breast cancer.
- - People use various types of acupuncture including needle, massage, cupping, moxibust, and electronic acupuncture.
+ - People use needle, massage, cupping, moxibustion, and electro-acupuncture methods.
 * Some of my discoveries agree with the two most recent National Health Survey Data in [2007](https://nccih.nih.gov/research/statistics/2007/camsurvey_fs1.htm#health) and [2012](https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings), but the twitter analysis is real time.
 * Future work:
  - Conduct the topic mining for other CAI approaches;
- - Try more robust method for sentiment analysis.
- - Deploy an App on ShinyApps.io or Heroku.
+ - Explore different methods for opinion mining.
+ - Deploy an App on ShinyApps.io ([example](https://zw-einstein.shinyapps.io/WordPrediction_v1/)) or Heroku.

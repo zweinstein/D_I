@@ -16,7 +16,7 @@ knit        : slidify::knit2slides
 knitr::opts_chunk$set(
     cache       = TRUE,     
     fig.width   = 14,       
-    fig.height  = 5.8,       
+    fig.height  = 5,       
     fig.align   = 'center',   
     echo        = FALSE,    
     message     = FALSE,     
@@ -46,12 +46,11 @@ options(scipen = 10)
 
 ## CAI Uses Reflected by Tweets on April 21, 2016
 
-* 70 search keywords were defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
+* Tweets were collected for April 10-29, 2016, using 60 search keywords defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
 * Nutrition, yoga, massage, and meditation are the 4 most frequently tweeted CAI approaches. 
-* When those keywords are disabled, ayurveda, hypnosis, and acupuncture appear to be the top approaches.
-* Other top approaches include reiki, homeopathy, herbal medicine, tai chi.
+* When those keywords are disabled, ayurveda, hypnosis, and acupuncture appear to be the top approaches. Other top approaches include reiki, homeopathy, herbal medicine, tai chi.
 
-```{r, echo=F, warning=F, fig.align='center'}
+```{r}
 require(RColorBrewer)
 load("data/gram0421.Rdata")
 par(mfrow=c(1,2))
@@ -65,7 +64,11 @@ plot(gram2, max.words=80, random.order=F, # min.freq=60,
 
 ## CAI Approaches Are Used Everywhere in the World
 
-```{r}
+English tweets about <span style="color:red"> Ayurveda </span>,
+<span style="color:green"> Hypnosis </span>, and 
+<span style="color:blue"> Acupuncture </span> in the World.
+
+```{r, fig.height=6.5}
 require(maps)
 require(ggplot2)
 HypLoc <- readRDS('data/HypUserLocations0421.rda')
@@ -94,9 +97,13 @@ print(zp1)
 
 ---
 
-## CAI Approaches Are Used throughout USA
+## CAI Approaches Are Used Everywhere in USA
 
-```{r}
+English tweets about <span style="color:red"> Ayurveda </span>,
+<span style="color:green"> Hypnosis </span>, and 
+<span style="color:blue"> Acupuncture </span> in USA.
+
+```{r, fig.height=6.5}
 require(ggplot2)
 HypLoc_usa <- readRDS('data/HypUserLocatUSA0421.rda')
 AcupLoc_usa <- readRDS('data/AcupUserLocatUSA0421.rda')
@@ -126,13 +133,14 @@ print(zp2)
 
 ---
 
-## What do people use Acupuncture for? How do they use it? What do they think about it?
+## Acupuncture: What for? How? Opinions?
 
-* People use acupuncture for weight loss, back pain, hot flash, breast cancer.
+English Tweets about Acupuncture during April 10-29, 2016:
+* People use acupuncture for weight loss, back pain, hot flash, breast cancer...
 * People use various types of acupuncture including needle, massage, cupping, moxibustion, and electro-acupuncture.
-* Positive opinions as indicated by "can help", "great", "like", "magic"...
+* Positive opinions indicated by "can help", "great", "like", "relax"...
 
-```{r, echo=F, warning=F, fig.align='center'}
+```{r, fig.align='center'}
 gram1acup <- readRDS('data/gram1acup.rda')
 gram2acup <- readRDS('data/gram2acup.rda')
 par(mfrow=c(1,2))
@@ -148,13 +156,12 @@ plot(gram2acup, max.words=80, random.order=F, # min.freq=60,
 
 * Sentiment score based on [NRC Word-Emotion Association Lexicon](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm). 
 * Mixed feelings, overall positive... 
-* Deeper text mining can identify more specific contexts for the positive and negative sentiment, respectively. 
 
-```{r, echo=F, warning=F, fig.height=3, fig.align='center'}
+```{r, fig.height=3}
 require(ggplot2)
 load("data/st.dataframe_acup.Rdata")
 st.all <- readRDS('data/stAll0421.rda')
-par(mfrow=c(1,2))
+par(mfrow=c(2,1))
 ggplot(st.all, aes(sentiment, count)) +
         geom_bar(stat = "identity", aes(fill = sentiment)) +
         theme(legend.position = "none", axis.text=element_text(size=8),
@@ -174,12 +181,12 @@ ggplot(st, aes(sentiment, count)) +
 ---
 
 ## Conclusions and Future Work
-* People are tweeting about CAI approaches all over the world, and throughout USA.
-* Acupuncture is among the most commonly used CAI approach:
+* People are tweeting about CAI approaches all over the world and in USA.
+* Top CAI approaches are nutrition, yoga, massage, meditation, ayurveda, hypnosis, acupuncture, reiki, homeopathy, herbal medicine, and tai chi.
  - People use acupuncture for weight loss, pain relief, hot flash, breast cancer.
- - People use various types of acupuncture including needle, massage, cupping, moxibust, and electronic acupuncture.
+ - People use needle, massage, cupping, moxibustion, and electro-acupuncture methods.
 * Some of my discoveries agree with the two most recent National Health Survey Data in [2007](https://nccih.nih.gov/research/statistics/2007/camsurvey_fs1.htm#health) and [2012](https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings), but the twitter analysis is real time.
 * Future work:
  - Conduct the topic mining for other CAI approaches;
- - Try more robust method for sentiment analysis.
- - Deploy an App on ShinyApps.io or Heroku.
+ - Explore different methods for opinion mining.
+ - Deploy an App on ShinyApps.io ([example](https://zw-einstein.shinyapps.io/WordPrediction_v1/)) or Heroku.
