@@ -26,7 +26,7 @@ knit        : slidify::knit2slides
 
 ## Twitter Provides Real-time Real-world Insights
     
-![flowchart](flowchart.tif)
+![flowchart](FlowChart.png)
 
 ---
 
