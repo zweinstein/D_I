@@ -46,9 +46,14 @@
     <h2>Motivation</h2>
   </hgroup>
   <article data-timings="">
-    <p>Both the World Health Organization (WHO) and the US National Institutes of Health (NIH) have made strategic plans to integrate orthodox medicine with complementary and alternative approaches for promoting public health and developing patient-centered and prevention-focused healthcare. Based on the most recent National Health Interview Survey in 2012, more than 3 in 10 American adults use complementary, alternative, and integrative (CAI) approaches to health and wellness. Prompt analysis of real-time real-world use of and attitudes toward CAI approaches in American population can help decision-making in healthcare reform and determining potential market value of CAI approaches. </p>
-
-<p>Disclaimer: All rights reserved. I initiated this project at the semi-finalist stage of my Data Incubator fellowship application, and plan to continue developing this project regardless of my application status. You are most welcome to contact me if you also have a passion for investigating CAI health with data science and would like to work together.</p>
+    <ul>
+<li>Chronic diseases cause <a href="http://www.who.int/ncds/introduction/en/">70% of all deaths worldwide</a> and <a href="http://www.who.int/nmh/countries/usa_en.pdf?ua=1">88% deaths in USA</a>. </li>
+<li>Conventional medicine can treat the symptoms but not cure a chronic disease; treating people with chronic diseases account for <a href="http://www.cdc.gov/chronicdisease/overview/">86% of health care costs in US</a>.</li>
+<li>Healthcare reform from disease control to preventative and personalized care.</li>
+<li>Strategic plans of <a href="http://www.who.int/medicines/publications/traditional/trm_strategy14_23/en/">World Health Organization (WHO)</a> and <a href="https://nccih.nih.gov/about/ataglance">US government</a> to integrate orthodox medicine with alternative approaches to health and wellness. </li>
+<li><a href="https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings">33% American adults</a> use complementary, alternative, and integrative (CAI) approaches to health and wellness. </li>
+<li><strong>Prompt analysis of real-time real-world use of and attitudes toward CAI approaches can help decision-making in healthcare reform and determining potential market value of CAI approaches.</strong> </li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -56,13 +61,10 @@
 
 <slide class="" id="slide-2" style="background:;">
   <hgroup>
-    <h2>Data Source and Objectives</h2>
+    <h2>Twitter Provides Real-time Real-world Insights</h2>
   </hgroup>
   <article data-timings="">
-    <p>Twitter is a microblogging system with over 100 million users generating 500 million tweets per day, and half of Twitter users are located in US. I am using Twitter text mining to discover what people are tweeting about CAI approaches and the sentiment associated with them. 
-In the end, an interactive online App can be developed based on this data project, with functions to explore and visualize the use of and attitudes toward CAI approaches in different regions and the changes over time. Potential users of the App include government policy makers, CAI practitioners, health insurers, investors interested in CAI approaches, and text-mining hobbyists.</p>
-
-<p>I scraped tweets from <a href="https://dev.twitter.com/overview/api">Twitter API</a> using the TwitteR package for R. Jeffrey Breen has published a twitter sentiment analysis tutorial in his <a href="https://github.com/jeffreybreen/twitter-sentiment-analysis-tutorial-201107">GitHub repository</a>. </p>
+    <p><img src="FlowChart.tif" alt="width"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -70,10 +72,15 @@ In the end, an interactive online App can be developed based on this data projec
 
 <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>Word Clouds Visualization</h2>
+    <h2>CAI Uses Reflected by Tweets on April 21, 2016</h2>
   </hgroup>
   <article data-timings="">
-    <p>Tweets about CAI Approaches during the Week of April 10, 2016 suggest some of the most popular CAI approaches are associated with acne treatment, breast cancer, and weight loss. The world clouds also illustrate overall positive sentiment regarding CAI approaches as indicated by words such as “extremely powerful”, “powerful herb”. </p>
+    <ul>
+<li>70 search keywords were defined based on <a href="http://www.whccamp.hhs.gov/fr2.html">examples given by the White House</a>.</li>
+<li>Nutrition, yoga, massage, and meditation are the 4 most frequently tweeted CAI approaches. </li>
+<li>When those keywords are disabled, ayurveda, hypnosis, and acupuncture appear to be the top approaches.</li>
+<li>Other top approaches include reiki, homeopathy, herbal medicine, tai chi.</li>
+</ul>
 
 <p><img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" /></p>
 
@@ -83,12 +90,82 @@ In the end, an interactive online App can be developed based on this data projec
 
 <slide class="" id="slide-4" style="background:;">
   <hgroup>
-    <h2>Total Sentiment Score</h2>
+    <h2>CAI Approaches Are Used Everywhere in the World</h2>
   </hgroup>
   <article data-timings="">
-    <p>The algorithms calculate the sentiment score of each word based on <a href="http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Word-Emotion Association Lexicon</a>, and sum up all the sentiment scores for the entire collection of tweet data. The tweets are mostly positive regarding CAI approaches. Deeper text mining will be conducted to identify more specific contexts for the positive and negative sentiment, respectively. </p>
+    <p><img src="assets/fig/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" /></p>
 
-<p><img src="assets/fig/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" /></p>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>CAI Approaches Are Used throughout USA</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/fig/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>What do people use Acupuncture for? How do they use it? What do they think about it?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>People use acupuncture for weight loss, back pain, hot flash, breast cancer.</li>
+<li>People use various types of acupuncture including needle, massage, cupping, moxibustion, and electro-acupuncture.</li>
+<li>Positive opinions as indicated by &quot;can help&quot;, &quot;great&quot;, &quot;like&quot;, &quot;magic&quot;...</li>
+</ul>
+
+<p><img src="assets/fig/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Overall Positive Feelings About CAI and Acupuncture</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Sentiment score based on <a href="http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm">NRC Word-Emotion Association Lexicon</a>. </li>
+<li>Mixed feelings, overall positive... </li>
+<li>Deeper text mining can identify more specific contexts for the positive and negative sentiment, respectively. </li>
+</ul>
+
+<p><img src="assets/fig/unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" /><img src="assets/fig/unnamed-chunk-6-2.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Conclusions and Future Work</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>People are tweeting about CAI approaches all over the world, and throughout USA.</li>
+<li>Acupuncture is among the most commonly used CAI approach:
+
+<ul>
+<li>People use acupuncture for weight loss, pain relief, hot flash, breast cancer.</li>
+<li>People use various types of acupuncture including needle, massage, cupping, moxibust, and electronic acupuncture.</li>
+</ul></li>
+<li>Some of my discoveries agree with the two most recent National Health Survey Data in <a href="https://nccih.nih.gov/research/statistics/2007/camsurvey_fs1.htm#health">2007</a> and <a href="https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings">2012</a>, but the twitter analysis is real time.</li>
+<li>Future work:
+
+<ul>
+<li>Conduct the topic mining for other CAI approaches;</li>
+<li>Try more robust method for sentiment analysis.</li>
+<li>Deploy an App on ShinyApps.io or Heroku.</li>
+</ul></li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -106,20 +183,44 @@ In the end, an interactive online App can be developed based on this data projec
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Data Source and Objectives'>
+        data-slide=2 title='Twitter Provides Real-time Real-world Insights'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Word Clouds Visualization'>
+        data-slide=3 title='CAI Uses Reflected by Tweets on April 21, 2016'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Total Sentiment Score'>
+        data-slide=4 title='CAI Approaches Are Used Everywhere in the World'>
          4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='CAI Approaches Are Used throughout USA'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='What do people use Acupuncture for? How do they use it? What do they think about it?'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Overall Positive Feelings About CAI and Acupuncture'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Conclusions and Future Work'>
+         8
       </a>
     </li>
   </ul>

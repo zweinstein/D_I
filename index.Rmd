@@ -29,51 +29,157 @@ options(scipen = 10)
 
 ## Motivation
 
-Both the World Health Organization (WHO) and the US National Institutes of Health (NIH) have made strategic plans to integrate orthodox medicine with complementary and alternative approaches for promoting public health and developing patient-centered and prevention-focused healthcare. Based on the most recent National Health Interview Survey in 2012, more than 3 in 10 American adults use complementary, alternative, and integrative (CAI) approaches to health and wellness. Prompt analysis of real-time real-world use of and attitudes toward CAI approaches in American population can help decision-making in healthcare reform and determining potential market value of CAI approaches. 
-
-Disclaimer: All rights reserved. I initiated this project at the semi-finalist stage of my Data Incubator fellowship application, and plan to continue developing this project regardless of my application status. You are most welcome to contact me if you also have a passion for investigating CAI health with data science and would like to work together.
+* Chronic diseases cause [70% of all deaths worldwide](http://www.who.int/ncds/introduction/en/) and [88% deaths in USA](http://www.who.int/nmh/countries/usa_en.pdf?ua=1). 
+* Conventional medicine can treat the symptoms but not cure a chronic disease; treating people with chronic diseases account for [86% of health care costs in US](http://www.cdc.gov/chronicdisease/overview/).
+* Healthcare reform from disease control to preventative and personalized care.
+* Strategic plans of [World Health Organization (WHO)](http://www.who.int/medicines/publications/traditional/trm_strategy14_23/en/) and [US government](https://nccih.nih.gov/about/ataglance) to integrate orthodox medicine with alternative approaches to health and wellness. 
+* [33% American adults](https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings) use complementary, alternative, and integrative (CAI) approaches to health and wellness. 
+* **Prompt analysis of real-time real-world use of and attitudes toward CAI approaches can help decision-making in healthcare reform and determining potential market value of CAI approaches.** 
 
 --- 
 
-## Data Source and Objectives
+## Twitter Provides Real-time Real-world Insights
     
-Twitter is a microblogging system with over 100 million users generating 500 million tweets per day, and half of Twitter users are located in US. I am using Twitter text mining to discover what people are tweeting about CAI approaches and the sentiment associated with them. 
-In the end, an interactive online App can be developed based on this data project, with functions to explore and visualize the use of and attitudes toward CAI approaches in different regions and the changes over time. Potential users of the App include government policy makers, CAI practitioners, health insurers, investors interested in CAI approaches, and text-mining hobbyists.
-
-I scraped tweets from [Twitter API](https://dev.twitter.com/overview/api) using the TwitteR package for R. Jeffrey Breen has published a twitter sentiment analysis tutorial in his [GitHub repository](https://github.com/jeffreybreen/twitter-sentiment-analysis-tutorial-201107). 
+![width](FlowChart.tif)
 
 ---
 
-## Word Clouds Visualization
+## CAI Uses Reflected by Tweets on April 21, 2016
 
-Tweets about CAI Approaches during the Week of April 10, 2016 suggest some of the most popular CAI approaches are associated with acne treatment, breast cancer, and weight loss. The world clouds also illustrate overall positive sentiment regarding CAI approaches as indicated by words such as “extremely powerful”, “powerful herb”. 
+* 70 search keywords were defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
+* Nutrition, yoga, massage, and meditation are the 4 most frequently tweeted CAI approaches. 
+* When those keywords are disabled, ayurveda, hypnosis, and acupuncture appear to be the top approaches.
+* Other top approaches include reiki, homeopathy, herbal medicine, tai chi.
+
+```{r, echo=F, warning=F, fig.align='center'}
+require(RColorBrewer)
+load("data/gram0421.Rdata")
+par(mfrow=c(1,2))
+plot(gram1, max.words=160, random.order=F, # min.freq=60,
+     colors = brewer.pal(6, "Dark2"), scale = c(4, 0.4))
+plot(gram2, max.words=80, random.order=F, # min.freq=60,
+     colors = brewer.pal(6, "Dark2"), scale = c(3, 0.3))
+```
+
+---
+
+## CAI Approaches Are Used Everywhere in the World
 
 ```{r}
-require(RColorBrewer)
-load("grams.Rdata")
-par(mfrow=c(1,2))
-plot(gram1, max.words=200, random.order=F, # min.freq=60,
-     colors = brewer.pal(6, "Dark2"), scale = c(5, 0.5))
-plot(gram2stem, max.words=100, random.order=F, # min.freq=60,
-     colors = brewer.pal(6, "Dark2"), scale = c(4, 0.4))
+require(maps)
+require(ggplot2)
+HypLoc <- readRDS('data/HypUserLocations0421.rda')
+AcupLoc <- readRDS('data/AcupUserLocations0421.rda')
+AyurLoc <- readRDS('data/AyurUserLocations0421.rda')
+worldMap <- map_data("world") 
+zp1 <- ggplot(worldMap)
+zp1 <- zp1 + geom_path(aes(x = long, y = lat, group = group),  # Draw map
+                       colour = gray(2/3), lwd = 1/3)
+zp1 <- zp1 + geom_point(data = AyurLoc,  # Add points indicating users
+                        aes(x = longitude, y = latitude),
+                        colour = "red", alpha = 1/3, size = 0.5) +
+  geom_point(data = HypLoc,  # Add points indicating users
+             aes(x = longitude, y = latitude),
+             colour = "darkgreen", alpha = 1/3, size = 0.5) +
+  geom_point(data = AcupLoc,  # Add points indicating users
+             aes(x = longitude, y = latitude),
+             colour = "blue", alpha = 1/3, size = 0.5) 
+zp1 <- zp1 + coord_equal()  
+zp1 <- zp1 + theme_minimal()  # Drop background annotations
+zp1 <- zp1 + xlab("longitude") + ylab("latitude") + 
+  ggtitle("English Tweets about Alternative Therapies on April 21, 2016") 
+  
+print(zp1)
 ```
 
 ---
 
-## Total Sentiment Score
+## CAI Approaches Are Used throughout USA
 
-The algorithms calculate the sentiment score of each word based on [NRC Word-Emotion Association Lexicon](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm), and sum up all the sentiment scores for the entire collection of tweet data. The tweets are mostly positive regarding CAI approaches. Deeper text mining will be conducted to identify more specific contexts for the positive and negative sentiment, respectively. 
-
-```{r, fig.height = 5.5}
+```{r}
 require(ggplot2)
-load("st.dataframe.Rdata")
-ggplot(st, aes(sentiment, count)) +
-        geom_bar(stat = "identity", aes(fill = sentiment)) +
-        theme(legend.position = "none", axis.text=element_text(size=16),
-              axis.title=element_text(size=18,face="bold"),
-              title=element_text(size=18,face="bold")) +
-        xlab("") + ylab("Total Count") + 
-        ggtitle("Total Sentiment Score for Tweets about CAI Approaches in the Week of April 10, 2016")
+HypLoc_usa <- readRDS('data/HypUserLocatUSA0421.rda')
+AcupLoc_usa <- readRDS('data/AcupUserLocatUSA0421.rda')
+AyurLoc_usa <- readRDS('data/AyurUserLocatUSA0421.rda')
+usaMap <- map_data("state")
+zp2 <- ggplot(usaMap) 
+zp2 <- zp2 + geom_path(aes(x = long, y = lat, group = group),  # Draw map
+                       colour = gray(2/3), lwd = 1/3)
+zp2 <- zp2 + geom_point(data = AyurLoc_usa,  # Add points indicating users
+                        aes(x = longitude, y = latitude),
+                        colour = "red", alpha = 1/3, size = 1) +
+  geom_point(data = HypLoc_usa,  # Add points indicating users
+             aes(x = longitude, y = latitude),
+             colour = "darkgreen", alpha = 1/3, size = 1) +
+  geom_point(data = AcupLoc_usa,  # Add points indicating users
+             aes(x = longitude, y = latitude),
+             colour = "blue", alpha = 1/3, size = 1) 
+zp2 <- zp2 + coord_equal()  
+zp2 <- zp2 + theme_minimal()  # Drop background annotations
+zp2 <- zp2 + xlab("longitude") + ylab("latitude") + 
+  scale_x_continuous(limits = c(-125, -65)) +
+  scale_y_continuous(limits = c(23, 50)) +
+  ggtitle("English Tweets about Alternative Therapies in the Contiguous 48 States on April 21, 2016")
+
+print(zp2)
 ```
 
+---
 
+## What do people use Acupuncture for? How do they use it? What do they think about it?
+
+* People use acupuncture for weight loss, back pain, hot flash, breast cancer.
+* People use various types of acupuncture including needle, massage, cupping, moxibustion, and electro-acupuncture.
+* Positive opinions as indicated by "can help", "great", "like", "magic"...
+
+```{r, echo=F, warning=F, fig.align='center'}
+gram1acup <- readRDS('data/gram1acup.rda')
+gram2acup <- readRDS('data/gram2acup.rda')
+par(mfrow=c(1,2))
+plot(gram1acup, max.words=160, random.order=F, # min.freq=60,
+     colors = brewer.pal(6, "Dark2"), scale = c(4, 0.4))
+plot(gram2acup, max.words=80, random.order=F, # min.freq=60,
+     colors = brewer.pal(6, "Dark2"), scale = c(3, 0.3))
+```
+
+---
+
+## Overall Positive Feelings About CAI and Acupuncture
+
+* Sentiment score based on [NRC Word-Emotion Association Lexicon](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm). 
+* Mixed feelings, overall positive... 
+* Deeper text mining can identify more specific contexts for the positive and negative sentiment, respectively. 
+
+```{r, echo=F, warning=F, fig.height=3, fig.align='center'}
+require(ggplot2)
+load("data/st.dataframe_acup.Rdata")
+st.all <- readRDS('data/stAll0421.rda')
+par(mfrow=c(1,2))
+ggplot(st.all, aes(sentiment, count)) +
+        geom_bar(stat = "identity", aes(fill = sentiment)) +
+        theme(legend.position = "none", axis.text=element_text(size=8),
+              axis.title=element_text(size=9,face="bold"),
+              title=element_text(size=9,face="bold")) +
+        xlab("") + ylab("Total Count") + 
+        ggtitle("Total Sentiment Score for Tweets about CAI Approaches April 21, 2016")
+ggplot(st, aes(sentiment, count)) +
+        geom_bar(stat = "identity", aes(fill = sentiment)) +
+        theme(legend.position = "none", axis.text=element_text(size=8),
+              axis.title=element_text(size=9,face="bold"),
+              title=element_text(size=9,face="bold")) +
+        xlab("") + ylab("Total Count") + 
+        ggtitle("Sentiment Score for Tweets about Acupuncture April 10-29, 2016")
+```
+
+---
+
+## Conclusions and Future Work
+* People are tweeting about CAI approaches all over the world, and throughout USA.
+* Acupuncture is among the most commonly used CAI approach:
+ - People use acupuncture for weight loss, pain relief, hot flash, breast cancer.
+ - People use various types of acupuncture including needle, massage, cupping, moxibust, and electronic acupuncture.
+* Some of my discoveries agree with the two most recent National Health Survey Data in [2007](https://nccih.nih.gov/research/statistics/2007/camsurvey_fs1.htm#health) and [2012](https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings), but the twitter analysis is real time.
+* Future work:
+ - Conduct the topic mining for other CAI approaches;
+ - Try more robust method for sentiment analysis.
+ - Deploy an App on ShinyApps.io or Heroku.

@@ -15,33 +15,71 @@ knit        : slidify::knit2slides
 
 ## Motivation
 
-Both the World Health Organization (WHO) and the US National Institutes of Health (NIH) have made strategic plans to integrate orthodox medicine with complementary and alternative approaches for promoting public health and developing patient-centered and prevention-focused healthcare. Based on the most recent National Health Interview Survey in 2012, more than 3 in 10 American adults use complementary, alternative, and integrative (CAI) approaches to health and wellness. Prompt analysis of real-time real-world use of and attitudes toward CAI approaches in American population can help decision-making in healthcare reform and determining potential market value of CAI approaches. 
-
-Disclaimer: All rights reserved. I initiated this project at the semi-finalist stage of my Data Incubator fellowship application, and plan to continue developing this project regardless of my application status. You are most welcome to contact me if you also have a passion for investigating CAI health with data science and would like to work together.
+* Chronic diseases cause [70% of all deaths worldwide](http://www.who.int/ncds/introduction/en/) and [88% deaths in USA](http://www.who.int/nmh/countries/usa_en.pdf?ua=1). 
+* Conventional medicine can treat the symptoms but not cure a chronic disease; treating people with chronic diseases account for [86% of health care costs in US](http://www.cdc.gov/chronicdisease/overview/).
+* Healthcare reform from disease control to preventative and personalized care.
+* Strategic plans of [World Health Organization (WHO)](http://www.who.int/medicines/publications/traditional/trm_strategy14_23/en/) and [US government](https://nccih.nih.gov/about/ataglance) to integrate orthodox medicine with alternative approaches to health and wellness. 
+* [33% American adults](https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings) use complementary, alternative, and integrative (CAI) approaches to health and wellness. 
+* **Prompt analysis of real-time real-world use of and attitudes toward CAI approaches can help decision-making in healthcare reform and determining potential market value of CAI approaches.** 
 
 --- 
 
-## Data Source and Objectives
+## Twitter Provides Real-time Real-world Insights
     
-Twitter is a microblogging system with over 100 million users generating 500 million tweets per day, and half of Twitter users are located in US. I am using Twitter text mining to discover what people are tweeting about CAI approaches and the sentiment associated with them. 
-In the end, an interactive online App can be developed based on this data project, with functions to explore and visualize the use of and attitudes toward CAI approaches in different regions and the changes over time. Potential users of the App include government policy makers, CAI practitioners, health insurers, investors interested in CAI approaches, and text-mining hobbyists.
-
-I scraped tweets from [Twitter API](https://dev.twitter.com/overview/api) using the TwitteR package for R. Jeffrey Breen has published a twitter sentiment analysis tutorial in his [GitHub repository](https://github.com/jeffreybreen/twitter-sentiment-analysis-tutorial-201107). 
+![width](FlowChart.tif)
 
 ---
 
-## Word Clouds Visualization
+## CAI Uses Reflected by Tweets on April 21, 2016
 
-Tweets about CAI Approaches during the Week of April 10, 2016 suggest some of the most popular CAI approaches are associated with acne treatment, breast cancer, and weight loss. The world clouds also illustrate overall positive sentiment regarding CAI approaches as indicated by words such as “extremely powerful”, “powerful herb”. 
+* 70 search keywords were defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
+* Nutrition, yoga, massage, and meditation are the 4 most frequently tweeted CAI approaches. 
+* When those keywords are disabled, ayurveda, hypnosis, and acupuncture appear to be the top approaches.
+* Other top approaches include reiki, homeopathy, herbal medicine, tai chi.
 
 <img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
 ---
 
-## Total Sentiment Score
-
-The algorithms calculate the sentiment score of each word based on [NRC Word-Emotion Association Lexicon](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm), and sum up all the sentiment scores for the entire collection of tweet data. The tweets are mostly positive regarding CAI approaches. Deeper text mining will be conducted to identify more specific contexts for the positive and negative sentiment, respectively. 
+## CAI Approaches Are Used Everywhere in the World
 
 <img src="assets/fig/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
 
+---
 
+## CAI Approaches Are Used throughout USA
+
+<img src="assets/fig/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+
+---
+
+## What do people use Acupuncture for? How do they use it? What do they think about it?
+
+* People use acupuncture for weight loss, back pain, hot flash, breast cancer.
+* People use various types of acupuncture including needle, massage, cupping, moxibustion, and electro-acupuncture.
+* Positive opinions as indicated by "can help", "great", "like", "magic"...
+
+<img src="assets/fig/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+
+---
+
+## Overall Positive Feelings About CAI and Acupuncture
+
+* Sentiment score based on [NRC Word-Emotion Association Lexicon](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm). 
+* Mixed feelings, overall positive... 
+* Deeper text mining can identify more specific contexts for the positive and negative sentiment, respectively. 
+
+<img src="assets/fig/unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" /><img src="assets/fig/unnamed-chunk-6-2.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
+
+---
+
+## Conclusions and Future Work
+* People are tweeting about CAI approaches all over the world, and throughout USA.
+* Acupuncture is among the most commonly used CAI approach:
+ - People use acupuncture for weight loss, pain relief, hot flash, breast cancer.
+ - People use various types of acupuncture including needle, massage, cupping, moxibust, and electronic acupuncture.
+* Some of my discoveries agree with the two most recent National Health Survey Data in [2007](https://nccih.nih.gov/research/statistics/2007/camsurvey_fs1.htm#health) and [2012](https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings), but the twitter analysis is real time.
+* Future work:
+ - Conduct the topic mining for other CAI approaches;
+ - Try more robust method for sentiment analysis.
+ - Deploy an App on ShinyApps.io or Heroku.
