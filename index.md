@@ -32,7 +32,7 @@ knit        : slidify::knit2slides
 
 ## CAI Uses Reflected by Tweets on April 21, 2016
 
-* Tweets were collected for April 10-29, 2016, using 60 search keywords defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
+* Tweets were collected for April 10-29, 2016, using [60 search keywords](https://github.com/zweinstein/D_I/blob/gh-pages/keywords.txt) defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
 * Nutrition, yoga, massage, and meditation are the 4 most frequently tweeted CAI approaches. 
 * When those keywords are disabled, ayurveda, hypnosis, and acupuncture appear to be the top approaches. Other top approaches include reiki, homeopathy, herbal medicine, tai chi.
 
