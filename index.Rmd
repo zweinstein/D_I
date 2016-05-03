@@ -40,7 +40,7 @@ options(scipen = 10)
 
 ## Twitter Provides Real-time Real-world Insights
     
-![width](FlowChart.tif)
+![flowchart](FlowChart.tif)
 
 ---
 
