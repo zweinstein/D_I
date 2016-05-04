@@ -89,4 +89,4 @@ English Tweets about Acupuncture during April 10-29, 2016:
 * Future work:
  - Conduct the topic mining for other CAI approaches;
  - Explore different methods for opinion mining.
- - Deploy an App on ShinyApps.io ([example](https://zw-einstein.shinyapps.io/WordPrediction_v1/)) or Heroku.
+ - Deploy an [App on ShinyApps.io](https://zw-einstein.shinyapps.io/ShinyMap/) or Heroku.
