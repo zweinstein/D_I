@@ -1,8 +1,8 @@
 ---
 title       : Real World Insights into Complementary, Alternative, and Integrative Health Approaches
 subtitle    : A Twitter Text Minding Study
-author      : Zhen Wang
-job         : Albert Einstein College of Medicine
+author      : Zhen Wang, Ph.D.
+job         : Albert Einstein College of Medicine 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : default      # 
@@ -35,6 +35,7 @@ options(scipen = 10)
 * Strategic plans of [World Health Organization (WHO)](http://www.who.int/medicines/publications/traditional/trm_strategy14_23/en/) and [US government](https://nccih.nih.gov/about/ataglance) to integrate orthodox medicine with alternative approaches to health and wellness. 
 * [33% American adults](https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings) use complementary, alternative, and integrative (CAI) approaches to health and wellness. 
 * **Prompt analysis of real-time real-world use of and attitudes toward CAI approaches can help decision-making in healthcare reform and determining potential market value of CAI approaches.** 
+* **Try my [App](https://zw-einstein.shinyapps.io/ShinyMap/)!**
 
 --- 
 
