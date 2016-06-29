@@ -1,6 +1,6 @@
 ---
 title       : Real World Insights into Complementary, Alternative, and Integrative Health Approaches
-subtitle    : A Twitter Text Minding Study
+subtitle    : A Twitter Text Mining Study
 author      : Zhen Wang, Ph.D.
 job         : Albert Einstein College of Medicine 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -14,7 +14,7 @@ knit        : slidify::knit2slides
 ```{r, echo=FALSE}
 ## Set global and markdown global options
 knitr::opts_chunk$set(
-    cache       = FALSE,     
+    cache       = TRUE,     
     fig.width   = 14,       
     fig.height  = 5,       
     fig.align   = 'center',   
