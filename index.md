@@ -21,7 +21,7 @@ knit        : slidify::knit2slides
 * Strategic plans of [World Health Organization (WHO)](http://www.who.int/medicines/publications/traditional/trm_strategy14_23/en/) and [US government](https://nccih.nih.gov/about/ataglance) to integrate orthodox medicine with alternative approaches to health and wellness. 
 * [33% American adults](https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings) use complementary, alternative, and integrative (CAI) approaches to health and wellness. 
 * **Prompt analysis of real-time real-world use of and attitudes toward CAI approaches can help decision-making in healthcare reform and determining potential market value of CAI approaches.** 
-* **Try my [App](https://zw-einstein.shinyapps.io/ShinyMap/)!**
+* **Try my [ShinyTwitter](https://zw-einstein.shinyapps.io/ShinyTwitter/) and [ShinyMap](https://zw-einstein.shinyapps.io/ShinyMap/) Apps!**
 
 --- 
 
@@ -31,17 +31,17 @@ knit        : slidify::knit2slides
 
 ---
 
-## CAI Uses Reflected by Tweets on April 21, 2016
+## Tweets about Major CAI Approaches
 
-* Tweets were collected for April 10-29, 2016, using [60 search keywords](https://github.com/zweinstein/D_I/blob/gh-pages/keywords.txt) defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
+* I have performed natural language processing on tweets collected through the Twitter Search API from April to July, 2016, using [60 search keywords](https://github.com/zweinstein/D_I/blob/gh-pages/keywords.txt) defined based on [examples given by the White House](http://www.whccamp.hhs.gov/fr2.html).
 * Nutrition, yoga, massage, and meditation are the 4 most frequently tweeted CAI approaches. 
-* When those keywords are disabled, ayurveda, hypnosis, and acupuncture appear to be the top approaches. Other top approaches include reiki, homeopathy, herbal medicine, tai chi.
+* Other top approaches include ayurveda, hypnosis, acupuncture, reiki, homeopathy, herbal medicine, tai chi.
 
 <img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
 
 ---
 
-## CAI Approaches Are Used Everywhere in the World
+## Tweets about CAI Approaches: Everywhere in the World
 
 English tweets about <span style="color:red"> Ayurveda </span>,
 <span style="color:green"> Hypnosis </span>, and 
@@ -51,7 +51,7 @@ English tweets about <span style="color:red"> Ayurveda </span>,
 
 ---
 
-## CAI Approaches Are Used Everywhere in USA
+## Tweets about CAI Approaches: Everywhere in USA
 
 English tweets about <span style="color:red"> Ayurveda </span>,
 <span style="color:green"> Hypnosis </span>, and 
@@ -72,12 +72,12 @@ English Tweets about Acupuncture during April 10-29, 2016:
 
 ---
 
-## Overall Positive Feelings About CAI and Acupuncture
+## Favorite Type(s) of CAI Approaches?
 
 * Sentiment score based on [NRC Word-Emotion Association Lexicon](http://saifmohammad.com/WebPages/NRC-Emotion-Lexicon.htm). 
-* Mixed feelings, overall positive... 
+* CAI approaches were classified into [5 different groups](https://zw-einstein.shinyapps.io/ShinyTwitter/). Therapeutic interventions (no oral intake) show the larger positive v.s. negative ratio than other approaches.
 
-<img src="assets/fig/unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" /><img src="assets/fig/unnamed-chunk-6-2.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
+<img src="assets/fig/unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
 
 ---
 
@@ -88,6 +88,6 @@ English Tweets about Acupuncture during April 10-29, 2016:
  - People use needle, massage, cupping, moxibustion, and electro-acupuncture methods.
 * Some of my discoveries agree with the two most recent National Health Survey Data in [2007](https://nccih.nih.gov/research/statistics/2007/camsurvey_fs1.htm#health) and [2012](https://nccih.nih.gov/research/statistics/NHIS/2012/key-findings), but the twitter analysis is real time.
 * Future work:
- - Conduct the topic mining for other CAI approaches;
+ - Noise reduction in natural language processing of collected tweets;
  - Explore different methods for opinion mining.
  - Deploy an [App on ShinyApps.io](https://zw-einstein.shinyapps.io/ShinyMap/) or Heroku.

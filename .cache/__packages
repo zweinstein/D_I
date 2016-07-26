@@ -4,3 +4,4 @@ RColorBrewer
 quanteda
 maps
 ggplot2
+data.table
