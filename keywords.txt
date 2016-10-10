@@ -1,3 +1,5 @@
+# 60 keywords were defined based on the examples listed by White House Commission on Complementary and Alternative Medicine Policy (https://www.whccamp.hhs.gov/fr2.html)
+
 "integrative+health"
 "alternative+health"
 "complementary+health"
